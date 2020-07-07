@@ -31,9 +31,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _screen.elementAt(_selectedIndex),
-      ),
+      body: _screen.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0.0,
         showSelectedLabels: false,
