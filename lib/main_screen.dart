@@ -28,11 +28,21 @@ class _MainScreenState extends State<MainScreen> {
     InformationScreen(),
   ];
 
+  static List<Color> _colors = <Color>[
+    Colors.white,
+    Colors.deepPurple,
+    Colors.white,
+    Colors.white
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screen.elementAt(_selectedIndex),
+      backgroundColor: _colors.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        type: BottomNavigationBarType.fixed,
         elevation: 0.0,
         showSelectedLabels: false,
         showUnselectedLabels: false,

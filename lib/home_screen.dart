@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:submission_flutter/appbar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,10 +14,6 @@ class _HomeScreen extends State<HomeScreen> {
     fontSize: 18.0,
   );
 
-  var preventionStyle = TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 16.0
-  );
 
   var contentBodyStyle = TextStyle(
     color: Colors.white,
@@ -24,10 +21,6 @@ class _HomeScreen extends State<HomeScreen> {
     height: 1.2,
   );
 
-  var preventionContainer = BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(10.0),
-  );
 
   String country = 'Indonesia';
 
@@ -50,26 +43,8 @@ class _HomeScreen extends State<HomeScreen> {
                 child: SafeArea(
                   child: Column(
                     children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Text(
-                                'Covid-19',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontSize: 24.0
-                              ),
-                            ),
-                          ),
-                          IconButton(
-                            icon: Icon(Icons.notifications_none),
-                            color: Colors.white,
-                            onPressed: () {},
-                          )
-                        ],
+                      CustomAppBar(
+                        title: 'Covid-19',
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -227,7 +202,7 @@ class _HomeScreen extends State<HomeScreen> {
                                     Padding(
                                       padding: const EdgeInsets.only(left: 8.0),
                                       child: Text(
-                                        'Call Now',
+                                        'SMS Now',
                                         style: TextStyle(
                                           color: Colors.white,
                                         ),
@@ -266,56 +241,17 @@ class _HomeScreen extends State<HomeScreen> {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
-                        Container(
-                          width: 125,
-                          margin: EdgeInsets.all(8.0),
-                          padding: EdgeInsets.all(16.0),
-                          decoration: preventionContainer,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Image.asset('images/distancing.png', width: 75,),
-                              Text(
-                                'Avoid close contact',
-                                  textAlign: TextAlign.center,
-                                  style: preventionStyle,
-                              ),
-                            ],
-                          ),
+                        PreventionItem(
+                          image: 'images/distancing.png',
+                          text: 'Avoid close contact',
                         ),
-                        Container(
-                          width: 125,
-                          margin: EdgeInsets.all(8.0),
-                          padding: EdgeInsets.all(16.0),
-                          decoration: preventionContainer,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Image.asset('images/hands.png', width: 75,),
-                              Text(
-                                  'Clean your hands often',
-                                  textAlign: TextAlign.center,
-                                  style: preventionStyle
-                              ),
-                            ],
-                          ),
+                        PreventionItem(
+                          image: 'images/hands.png',
+                          text: 'Clean your hands often',
                         ),
-                        Container(
-                          width: 125,
-                          margin: EdgeInsets.all(8.0),
-                          padding: EdgeInsets.all(16.0),
-                          decoration: preventionContainer,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Image.asset('images/mask.png', width: 75,),
-                              Text(
-                                  'Wear a facemask',
-                                  textAlign: TextAlign.center,
-                                  style: preventionStyle
-                              ),
-                            ],
-                          ),
+                        PreventionItem(
+                          image: 'images/mask.png',
+                          text: 'Wear a facemask',
                         )
                       ],
                     ),
@@ -364,6 +300,39 @@ class _HomeScreen extends State<HomeScreen> {
               ],
             ),
           )
+        ],
+      ),
+    );
+  }
+}
+
+// ignore: must_be_immutable
+class PreventionItem extends StatelessWidget {
+  String image, text;
+
+  PreventionItem({this.image, this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 125,
+      margin: EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Image.asset(image, width: 75,),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16.0
+            ),
+          ),
         ],
       ),
     );
