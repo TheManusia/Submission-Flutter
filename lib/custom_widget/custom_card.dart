@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomCard extends StatelessWidget {
   String title, number;
   Color color;
+  double size;
 
-  CustomCard({this.title, this.number, this.color});
+  CustomCard({this.title, this.number, this.color, this.size});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width/2.5,
+      width: MediaQuery.of(context).size.width/size,
       decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(8.0)
@@ -28,14 +30,21 @@ class CustomCard extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 32.0),
-              child: Text(
-                number,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 32,
+              child: AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                title: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    number,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 36,
+                    ),
+                  ),
                 ),
-              ),
+              )
             )
           ],
         ),
