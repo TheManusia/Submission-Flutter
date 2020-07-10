@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:submission_flutter/information_screen.dart';
-import 'package:submission_flutter/report_screen.dart';
+import 'package:submission_flutter/screen/information_screen.dart';
 
 import 'home_screen.dart';
 import 'stats_screen.dart';
@@ -24,15 +23,13 @@ class _MainScreenState extends State<MainScreen> {
   static List<Widget> _screen = <Widget>[
     HomeScreen(),
     StatsScreen(),
-    ReportScreen(),
     InformationScreen(),
   ];
 
   static List<Color> _colors = <Color>[
     Colors.white,
     Colors.deepPurple,
-    Colors.white,
-    Colors.white
+    Colors.deepPurple
   ];
 
   @override
@@ -54,10 +51,6 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.insert_chart),
             title: Text('Stats'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
-            title: Text('School'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.info),
