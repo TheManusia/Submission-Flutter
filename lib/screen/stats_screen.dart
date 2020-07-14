@@ -79,7 +79,7 @@ class StatsScreen extends StatelessWidget {
               topLeft: const Radius.circular(32.0),
               topRight: const Radius.circular(32.0)
           ),
-          minHeight: 250,
+          minHeight: 200,
           panel: Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(

@@ -235,7 +235,7 @@ class _HomeScreen extends State<HomeScreen> {
                   ),
                 ),
                 Container(
-                  height: 175,
+                  height: 150,
                   color: Colors.transparent,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
@@ -259,43 +259,48 @@ class _HomeScreen extends State<HomeScreen> {
             ),
           ),
         ),
-        Container(
-          width: 125,
-          margin: EdgeInsets.symmetric(
-              horizontal: 24.0
-          ),
-          child: Stack(
-            children: <Widget>[
-              Container(
-                height: 100,
-                margin: EdgeInsets.only(left: 50.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: Colors.deepPurple,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'Do your own test!',
-                        style: titleBodyStyle,
+        Expanded(
+          child: Container(
+            width: 125,
+            margin: EdgeInsets.symmetric(
+                horizontal: 24.0
+            ),
+            child: Stack(
+              children: <Widget>[
+                FlatButton(
+                  onPressed: (){},
+                  child: Container(
+                    height: 100,
+                    margin: EdgeInsets.only(left: 50.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Colors.deepPurple,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Do your own test!',
+                            style: titleBodyStyle,
+                          ),
+                          Text(
+                            'Follow the instruction to do your own test.',
+                            style: contentBodyStyle,
+                          ),
+                        ],
                       ),
-                      Text(
-                        'Follow the instruction to do your own test.',
-                        style: contentBodyStyle,
-                      ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 12.0),
-                alignment: FractionalOffset.centerLeft,
-                child: Image.asset('images/doctor.png', width: 70,),
-              )
-            ],
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 12.0),
+                  alignment: FractionalOffset.centerLeft,
+                  child: Image.asset('images/doctor.png', width: 70,),
+                )
+              ],
+            ),
           ),
         )
       ],
@@ -313,8 +318,8 @@ class PreventionItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 125,
-      margin: EdgeInsets.all(8.0),
-      padding: EdgeInsets.all(16.0),
+      margin: EdgeInsets.all(4.0),
+      padding: EdgeInsets.all(4.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
       ),
