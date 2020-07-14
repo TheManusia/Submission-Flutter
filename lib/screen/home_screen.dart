@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:submission_flutter/custom_widget/appbar.dart';
+import 'package:submission_flutter/screen/test_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -268,7 +269,11 @@ class _HomeScreen extends State<HomeScreen> {
             child: Stack(
               children: <Widget>[
                 FlatButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context ) {
+                      return TestScreen();
+                    }));
+                  },
                   child: Container(
                     height: 100,
                     margin: EdgeInsets.only(left: 50.0),
